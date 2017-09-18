@@ -22,3 +22,21 @@ p {
     padding: 5px;
     text-align: center;
 }
+.intro {
+    margin-top: -30px;
+}
+#button-login{
+    padding-top:50px;
+    float: left;
+}
+#button-login p {
+    font-size: 0.7em;
+}
+
+#button-sign-up{
+    padding-top:50px;
+    float:right;
+}
+#button-sign-up p {
+    font-size: 0.7em;
+}
