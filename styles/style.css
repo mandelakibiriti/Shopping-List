@@ -1,15 +1,56 @@
+/*For responsive design depending on screen size*/
+/* Small devices (tablets, 768px and below) */
+@media only screen and (min-device-width: 320px) and (max-device-width: 768px) {
+    body {
+      font-size: 1em;
+    }
+    h1,
+    .h1 {
+      font-size: 1.5em;
+    }
+    h3,
+    .h3 {
+      font-size: 1em;
+    }
+    .people .dev .secure .scale {
+      font-size: 1em;
+    }
+
+  }
+  
+  /* Medium devices (desktops, 992px and up) */
+  @media only screen and (min-device-width: 992px) and (max-device-width: 1200px) {
+  
+  }
+
 /*Styling sheet for shopping list using bootstrap*/
+html,body {
+	width: 100%;
+  	height: 100%;
+}
+
 body {
     font-family: Source Sans Pro;
-    width: 100%;
-    height: 100%;
     background-color: #073763;
 }
 
+.navbar-brand {
+    font-size: large;
+    font-weight: 600;
+}
+
+.navbar-default .navbar-brand {
+    color: #000000;
+}
+
+.navbar-nav>li>a {
+    font-size: medium;
+    font-weight: 600;
+}
 
 /*homepage*/
 .intro{
-    margin-top:10%;
+    margin-top:5%;
 }
 .intro h1, p {
     color: white;
@@ -30,32 +71,22 @@ body {
     width:60%;
 }
 
-.btn-default {
-    font-size: larger;
-    font-weight: 700;
+.img{
+    height: 250px;
+    width: 100%;
+    display: block;
+    margin-top: 50px;
 }
 
-#buttons{
-    width: 50%;
-    margin: auto;
-    margin-top:50px;
+.imgapple {
+    max-width: 20%;
+    height: auto;
 }
 
-#button-login {
-    float: left;
+.imggoogle {
+    max-width: 25%;
+    height: auto;
 }
 
-#button-sign-up{
-    float:right;
-}
 
-.p1-center {
-    margin-left:-35px;
-    margin-top:10px;
-}
-
-.p2-center {
-    margin-left: -7px;
-    margin-top:10px;
-}
 
