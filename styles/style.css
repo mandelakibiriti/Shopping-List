@@ -1,42 +1,61 @@
-body{
-    height: 100%;
+/*Styling sheet for shopping list using bootstrap*/
+body {
+    font-family: Source Sans Pro;
     width: 100%;
+    height: 100%;
     background-color: #073763;
 }
 
-h1,p {
-    color: #ffffff;
+
+/*homepage*/
+.intro{
+    margin-top:10%;
+}
+.intro h1, p {
+    color: white;
+    
 }
 
-h1 {
-    font-size: 6em;
-}
-
-p {
-    font-size: 1.5em;
-}
-
-#container {
-    margin: auto;
-    width: 500px;
-    padding: 5px;
+.intro h1 {
+    font-size: 4em;
     text-align: center;
+    font-weight:600;
 }
-.intro {
-    margin-top: -30px;
+
+.intro p {
+    font-size:2em;
+    text-align: center;
+    padding-top:10px;
+    margin: auto;
+    width:60%;
 }
-#button-login{
-    padding-top:50px;
+
+.btn-default {
+    font-size: larger;
+    font-weight: 700;
+}
+
+#buttons{
+    width: 50%;
+    margin: auto;
+    margin-top:50px;
+}
+
+#button-login {
     float: left;
-}
-#button-login p {
-    font-size: 0.7em;
 }
 
 #button-sign-up{
-    padding-top:50px;
     float:right;
 }
-#button-sign-up p {
-    font-size: 0.7em;
+
+.p1-center {
+    margin-left:-35px;
+    margin-top:10px;
 }
+
+.p2-center {
+    margin-left: -7px;
+    margin-top:10px;
+}
+
