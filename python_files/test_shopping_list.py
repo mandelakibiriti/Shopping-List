@@ -12,6 +12,6 @@ class ShoppingListTestCase(unittest.TestCase):
         self.shop_list_yangu.add('book')
         self.assertEqual(len(self.shop_list_yangu.items), 3, msg = "Invalid")
 
-        def test_remove_item(self):
-            self.shop_list_yangu.remove('shoe')
-            self.assertEqual(len(self.shop_list_yangu.items), 2, msg = "Invalid")
+    def test_remove_item(self):
+        self.shop_list_yangu.remove('shoe')
+        self.assertEqual(len(self.shop_list_yangu.items), 2, msg = "Invalid")
