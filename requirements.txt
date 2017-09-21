@@ -82,7 +82,6 @@ partd==0.3.7
 path.py==0.0.0
 pathlib2==2.2.0
 patsy==0.4.1
-pbr==3.1.1
 pep8==1.7.0
 pickleshare==0.7.4
 Pillow==4.0.0
@@ -124,7 +123,6 @@ sphinx==1.5.1
 spyder==3.1.2
 SQLAlchemy==1.1.5
 statsmodels==0.6.1
-stevedore==1.26.0
 sympy==1.0
 tables==3.2.2
 toolz==0.8.2
@@ -132,9 +130,6 @@ tornado==4.4.2
 traitlets==4.3.1
 unicodecsv==0.14.1
 virtualenv==15.1.0
-virtualenv-clone==0.2.6
-virtualenvwrapper==4.8.2
-virtualenvwrapper-win==1.2.2
 wcwidth==0.1.7
 Werkzeug==0.11.15
 widgetsnbextension==1.2.6
