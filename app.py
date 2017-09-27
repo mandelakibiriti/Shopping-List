@@ -5,11 +5,11 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField
 from wtforms.validators import InputRequired, Email, length
 
-
 app = Flask(__name__)
 Bootstrap(app)
 app.config['SECRET_KEY'] = 'secretkey'
-    
+
+#Form for login and sign-up
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[InputRequired(), length(min=4, max=5)])
     password = PasswordField('Password', validators=[InputRequired(), length(min=8, max=12)])
@@ -20,6 +20,44 @@ class SignUpForm(FlaskForm):
     password = PasswordField('Password', validators=[InputRequired(), length(min=8, max=12)])
     terms = BooleanField('Agree to Terms and Condtions', validators=[InputRequired()])
 
+class User(object):  
+    def __init__(self):
+        self.username = ""
+        self.password = ""
+
+    def login(self, username, password):
+        self.username = username
+        self.password = password
+
+    def signup(self, username, email, password):
+        self.username = username
+        self.email = email
+        self.password = password
+
+class ShoppingList(object):
+    shopping_dict = {}
+    
+    #Creating a list for shopping lists and list for items on a shopping list
+    def __init__(self):
+        self.items = list()    
+
+    #Method to name a list
+    def name(self, listname):
+        self.listname = listname
+
+    #Method to link listname to items in dictionary  
+    def addlist(self, listname, items):
+        self.shopping_dict[listname] = items
+        
+    #Method to add item
+    def additem(self, item):
+        self.items.append(item)
+        return self.items
+
+    #Method to remove item
+    def removeitem(self, item):
+        self.items.remove(item)
+        return self.items
 
 @app.route('/')
 def index():
@@ -45,9 +83,9 @@ def login():
 
     return render_template("login.html", form=form)
 
-@app.route('/user')
+@app.route('/user', methods=['GET', 'POST'])
 def user():
-    return render_template('user.html')
+    return render_template("user.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

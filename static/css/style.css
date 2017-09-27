@@ -141,6 +141,10 @@ body {
     margin-bottom: .5rem;
 }
 
+.control-label{
+    color:white;
+}
+
 label {
     display: block;
 }
