@@ -34,20 +34,18 @@ class User(object):
         self.email = email
         self.password = password
 
-class ShoppingList(object):
+""""
+class ShoppingList(object):    
     shopping_dict = {}
-    
+
     #Creating a list for shopping lists and list for items on a shopping list
     def __init__(self):
-        self.items = list()    
+        self.items = list()
+        self.lists = list()
 
     #Method to name a list
     def name(self, listname):
         self.listname = listname
-
-    #Method to link listname to items in dictionary  
-    def addlist(self, listname, items):
-        self.shopping_dict[listname] = items
         
     #Method to add item
     def additem(self, item):
@@ -59,7 +57,22 @@ class ShoppingList(object):
         self.items.remove(item)
         return self.items
 
-@app.route('/')
+    #Method to link listname to items in dictionary  
+    def addlist(self, listname, items):
+        self.shopping_dict[listname] = items
+        self.lists.append(self.shopping_dict)
+        return self.lists
+    
+    #Method to remove list in dicionary
+    def removelist(self, listname):
+        for d in self.lists:
+            if d.get(self.listname) == self.items:
+                d.pop(self.listname)
+        return self.lists
+
+"""
+
+@app.route('/index')
 def index():
     return render_template('index.html')
 
@@ -83,8 +96,17 @@ def login():
 
     return render_template("login.html", form=form)
 
+#-----------------list functionality----------------#
+
+shopping_dict = {}
+
 @app.route('/user', methods=['GET', 'POST'])
 def user():
+    shopping = ShoppingList()
+    shopping.name(shoppinglistname)
+    shopping.additem(itemname)
+    shopping.removeitem(itemname)
+    shopping.addlist(shoppinglistname,items)
     return render_template("user.html")
 
 if __name__ == "__main__":
