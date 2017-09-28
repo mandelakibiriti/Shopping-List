@@ -107,6 +107,8 @@ def user():
     shopping.additem(itemname)
     shopping.removeitem(itemname)
     shopping.addlist(shoppinglistname,items)
+    shopping.removelist(shoppinglistname)
+    
     return render_template("user.html")
 
 if __name__ == "__main__":
