@@ -20,6 +20,31 @@ class SignUpForm(FlaskForm):
     password = PasswordField('Password', validators=[InputRequired(), length(min=8, max=12)])
     terms = BooleanField('Agree to Terms and Condtions', validators=[InputRequired()])
 
+#Object for user data handling
+class User(object):
+    userdict = {}
+    def __init__(self):
+        self.userlist = list()
+        self.useraccount = list()
+        
+    def login(self, username, password):
+        self.username = username
+        self.password = password
+        self.useraccount = [self.username, self.password]
+        return self.useraccount
+
+    def signup(self, username, email, password):
+        self.username = username
+        self.email = email
+        self.password = password
+        self.useraccount = [username, email, password]
+        return self.useraccount
+
+    def addusertolist(self, useraccount, username):
+        self.userdict[username] = useraccount
+        self.userlist.append(self.userdict)
+        return self.userlist
+
 
 @app.route('/')
 def index():
@@ -38,12 +63,17 @@ def sign_up():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    form = LoginForm()
+form = LoginForm()
+
+    if request.method == 'POST':
+
 
     if form.validate_on_submit():
         return redirect(url_for('user'))
 
-    return render_template("login.html", form=form)
+
+    else:
+        return render_template("login.html", form=form)
 
 @app.route('/user')
 def user():
