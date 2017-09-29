@@ -40,9 +40,7 @@ https://app-listy.herokuapp.com/
   ```
 4. Once you have downloaded the files open the Listy_App.py file on command terminal.
   ```
-  $ export FLASK_APP = Listy_App.py
-  $ flask run
-    * Running on http://127.0.0.1:5000/
+  $ python app.py
   ```
 4. Follow the IP provided and it will take you to the landing page of the app.
 
