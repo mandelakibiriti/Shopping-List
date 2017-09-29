@@ -1,5 +1,5 @@
 #importing for form functionality
-from flask import Flask, render_template, request, url_for, redirect, flash
+from flask import Flask, render_template, request, url_for, redirect, session, flash
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField
@@ -90,8 +90,6 @@ def sign_up():
 
         user.signup(username, email, password)
 
-        print(user.userlist)
-
         return redirect(url_for('login'))
 
     return render_template("sign_up.html", form=form)
@@ -102,14 +100,6 @@ def login():
     form = LoginForm()
 
     if form.validate_on_submit():
-        user = User()
-        username = request.form['username']
-        password = request.form['password']
-
-        if user.userdict[username] != username:
-            error
-            flash('user does not exit')
-        else:
             return redirect(url_for('dashboard'))
 
     else:
