@@ -1,6 +1,6 @@
 class ShoppingList(object):
-    def __init__(self):
-        self.items = []
+    def __init__(self, items = list()):
+        self.items = items
 
     #Method to add item
     def add(self,item):
