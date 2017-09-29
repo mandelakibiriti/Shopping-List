@@ -1,5 +1,9 @@
 class ShoppingList(object):
+<<<<<<< HEAD
     def __init__(self, items=list()):
+=======
+    def __init__(self, items = list()):
+>>>>>>> login-features
         self.items = items
 
     #Method to add item

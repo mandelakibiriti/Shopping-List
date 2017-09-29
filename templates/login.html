@@ -40,20 +40,19 @@
         </nav>
 
     {% import "bootstrap/wtf.html" as wtf %}
-
     <div class = "container">
         <div class="jumbotron">
             <h1>Login</h1>
 
             <form method="POST" action="/login">
-                <div class="form-group">
-                    {{ form.hidden_tag()}}
-                    {{wtf.form_field(form.username)}}
-                    {{wtf.form_field(form.password)}}
-                </div>
+                {{ form.hidden_tag()}}
+                {{wtf.form_field(form.username)}}
+                {{wtf.form_field(form.password)}}
 
                 <button type="submit" class="btn btn-primary">Submit</button>
+
             </form>
+
         </div>
 
         <footer class="footer">

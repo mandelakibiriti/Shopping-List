@@ -1,5 +1,5 @@
 #importing for form functionality
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, flash
 from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField
@@ -16,7 +16,7 @@ class LoginForm(FlaskForm):
 
 class SignUpForm(FlaskForm):
     username = StringField('Username', validators=[InputRequired(), length(min=4, max=5)])
-    email = StringField('Email', validators=[InputRequired(), Email(message='Invalid email')])
+    email = StringField('Email', validators=[InputRequired(), Email('Invalid email')])
     password = PasswordField('Password', validators=[InputRequired(), length(min=8, max=12)])
     terms = BooleanField('Agree to Terms and Condtions', validators=[InputRequired()])
 
@@ -52,7 +52,44 @@ class ShoppingList(object):
         self.items.append(item)
         return self.items
 
+<<<<<<< HEAD
     #Method to remove item
+=======
+#Object for user data handling
+class User(object):
+    userdict = {}
+    
+    def __init__(self):
+        self.userlist = list()
+        self.useraccount = list()
+
+    def signup(self, username, email, password):
+        self.useraccount = [username, email, password]
+        self.logindetails = [email, password]
+        self.userdict[username] = self.logindetails
+        self.userlist.append(self.userdict)
+        return self.userlist
+
+#Object for shoppinglist data handling
+class ShoppingList(object):    
+    shopping_dict = {}
+
+    #Creating a list for shopping lists and list for items on a shopping list
+    def __init__(self):
+        self.items = list()
+        self.lists = list()
+
+    #Method to name a list
+    def name(self, listname):
+        self.listname = listname
+        
+    #Method to add item
+    def additem(self, item):
+        self.items.append(item)
+        return self.items
+
+    #Method to remove an item
+>>>>>>> login-features
     def removeitem(self, item):
         self.items.remove(item)
         return self.items
@@ -60,9 +97,15 @@ class ShoppingList(object):
     #Method to link listname to items in dictionary  
     def addlist(self, listname, items):
         self.shopping_dict[listname] = items
+<<<<<<< HEAD
         self.lists.append(self.shopping_dict)
         return self.lists
     
+=======
+        self.lists.update(self.shopping_dict)
+        return self.lists
+
+>>>>>>> login-features
     #Method to remove list in dicionary
     def removelist(self, listname):
         for d in self.lists:
@@ -70,8 +113,12 @@ class ShoppingList(object):
                 d.pop(self.listname)
         return self.lists
 
+<<<<<<< HEAD
 """
 
+=======
+@app.route('/')
+>>>>>>> login-features
 @app.route('/index')
 def index():
     return render_template('index.html')
@@ -82,6 +129,16 @@ def sign_up():
     form = SignUpForm()
 
     if form.validate_on_submit():
+        user = User()
+
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+
+        user.signup(username, email, password)
+
+        print(user.userlist)
+
         return redirect(url_for('login'))
 
     return render_template("sign_up.html", form=form)
@@ -92,10 +149,21 @@ def login():
     form = LoginForm()
 
     if form.validate_on_submit():
-        return redirect(url_for('user'))
+        user = User()
+        username = request.form['username']
+        password = request.form['password']
 
-    return render_template("login.html", form=form)
+        if user.userdict[username] != username:
+            error
+            flash('user does not exit')
+        else:
+            return redirect(url_for('user'))
 
+    else:
+        return render_template("login.html", form=form)
+
+
+<<<<<<< HEAD
 #-----------------list functionality----------------#
 
 shopping_dict = {}
@@ -110,6 +178,11 @@ def user():
     shopping.removelist(shoppinglistname)
     
     return render_template("user.html")
+=======
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+>>>>>>> login-features
 
 if __name__ == "__main__":
     app.run(debug=True)
