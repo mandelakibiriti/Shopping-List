@@ -110,7 +110,7 @@ def login():
             error
             flash('user does not exit')
         else:
-            return redirect(url_for('user'))
+            return redirect(url_for('dashboard'))
 
     else:
         return render_template("login.html", form=form)
